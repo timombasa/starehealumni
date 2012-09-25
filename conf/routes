@@ -2,7 +2,7 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Default path will just redirect to the old boy list
+# Default path 
 GET     /                         controllers.Application.index()
 
 # Map static resources from the /public folder to the /assets URL path
