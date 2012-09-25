@@ -1,0 +1,10 @@
+logs
+project/project
+project/target
+project/.idea
+project/.idea_modules
+project/.settings
+target
+tmp
+.history
+dist
