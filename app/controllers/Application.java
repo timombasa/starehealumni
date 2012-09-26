@@ -20,12 +20,20 @@ public class Application extends Controller {
     }
 
     public static Result newOldBoy(){
-        return TODO;
+        Form<OldBoy> filledForm = oldBoyForm.bindFromRequest();
+        if(filledForm.hasErrors()) {
+            return badRequest(
+              views.html.index.render(OldBoy.all(), filledForm)
+            );
+        } else {
+            OldBoy.create(filledForm.get());
+            return redirect(routes.Application.oldBoys());
+        }
     }
 
-
     public static Result deleteOldBoy(Long id){
-        return TODO;
+        OldBoy.delete(id);
+        return redirect(routes.Application.oldBoys());
     }
 }
             

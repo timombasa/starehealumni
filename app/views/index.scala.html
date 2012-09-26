@@ -9,8 +9,6 @@
     <ul>
         @for(oldBoy <- oldBoys) {
             <li>
-                @oldBoy.id
-
                 @form(routes.Application.deleteOldBoy(oldBoy.id)) {
                     <input type="submit" value="Delete">
                 }
