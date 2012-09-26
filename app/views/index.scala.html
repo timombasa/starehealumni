@@ -1,6 +1,45 @@
-@(message: String)
+@(oldBoys: List[models.OldBoy], oldBoyForm: Form[models.OldBoy])
 
-@main("Welcome to Play 2.0") {
+@import helper._
 
-    @play20.welcome(message)
+@main("OldBoy list") {
+    
+    <h1>@oldBoys.size() oldBoy(s)</h1>
+    
+    <ul>
+        @for(oldBoy <- oldBoys) {
+            <li>
+                @oldBoy.id
+
+                @form(routes.Application.deleteOldBoy(oldBoy.id)) {
+                    <input type="submit" value="Delete">
+                }
+            </li>
+        }
+    </ul>
+    
+    <h2>Add a new oldBoy</h2>
+    
+    @form(routes.Application.newOldBoy()) {
+
+        @inputText(oldBoyForm("First Name"))
+
+        @inputText(oldBoyForm("Middle Name"))
+
+        @inputText(oldBoyForm("Last Name"))
+
+        @inputText(oldBoyForm("Year Of The Charge"))
+
+        @inputText(oldBoyForm("House"))
+
+        @inputText(oldBoyForm("Expertise"))
+
+        @inputText(oldBoyForm("Location"))
+
+        @inputText(oldBoyForm("Contact"))
+
+        <input type="submit" value="Create">
+        
+    }
+    
 }
