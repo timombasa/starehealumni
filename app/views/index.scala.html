@@ -9,7 +9,7 @@
     <ul>
         @for(oldBoy <- oldBoys) {
             <li>
-                @form(routes.Application.deleteOldBoy(oldBoy.id)) {
+                @form(routes.Application.delete(oldBoy.id)) {
                     <input type="submit" value="Delete">
                 }
             </li>
@@ -18,13 +18,9 @@
     
     <h2>Add a new oldBoy</h2>
     
-    @form(routes.Application.newOldBoy()) {
+    @form(routes.Application.create()) {
 
-        @inputText(oldBoyForm("First Name"))
-
-        @inputText(oldBoyForm("Middle Name"))
-
-        @inputText(oldBoyForm("Last Name"))
+        @inputText(oldBoyForm("Name (First, Middle, Last)"))
 
         @inputText(oldBoyForm("Year Of The Charge"))
 
