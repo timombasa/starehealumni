@@ -1,12 +1,13 @@
 package models;
 
-import com.avaje.ebean.Page;
-import play.data.validation.Constraints;
-import play.db.ebean.Model;
+import java.util.*;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.List;
+import play.db.ebean.*;
+import play.data.format.*;
+import play.data.validation.*;
+
+import com.avaje.ebean.*;
 
 
 @Entity
@@ -16,7 +17,7 @@ public class OldBoy extends Model{
     public Long id;
 
     @Constraints.Required
-    private String name;
+    public String name;
 
     private String contact;
 
@@ -33,6 +34,7 @@ public class OldBoy extends Model{
         return name;
     }
 
+    // Generic query helper for entity OldBoy with id Long
     public static Finder<Long, OldBoy> find = new Finder(
       Long.class, OldBoy.class
     );
@@ -42,7 +44,6 @@ public class OldBoy extends Model{
         return find.where()
                    .ilike("name", "%" + filter + "%")
                    .orderBy(sortBy + " " + order)
-                   .fetch("company")
                    .findPagingList(pageSize)
                    .getPage(page);
     }
