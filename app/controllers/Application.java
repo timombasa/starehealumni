@@ -16,6 +16,7 @@ public class Application extends Controller {
         routes.Application.list(0, "name", "asc", "")
     );
 
+   // Handle default path requests
     public static Result index() {
         return GO_HOME;
     }
@@ -57,7 +58,8 @@ public class Application extends Controller {
                     createForm.render(filledForm)
             );
     }
-
+    
+    // Handle the 'new oldBoy form' submission
     public static Result save() {
         Form<OldBoy> oldBoyForm = form(OldBoy.class).bindFromRequest();
         if(oldBoyForm.hasErrors()) {

@@ -19,15 +19,19 @@ public class OldBoy extends Model{
     @Constraints.Required
     public String name;
 
+    @Constraints.Required
     private String contact;
 
+    @Constraints.Required
     private Long yearOfTheCharge;
 
+    @Constraints.Required
     private String house;
 
+    @Constraints.Required
     private String expertise;
 
-    // @ManyToOne
+    @Constraints.Required
     private String location;
 
     public String name() {
@@ -59,6 +63,4 @@ public class OldBoy extends Model{
     public static void delete(Long id) {
         find.ref(id).delete();
     }
-
-
 }

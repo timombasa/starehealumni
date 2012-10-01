@@ -2,21 +2,21 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# Default path will just redirect to the computer list
+# Default path will just redirect to the old boys list
 GET     /                           controllers.Application.index()
 
-# Computers list (look at the default values for pagination parameters)
+# Old Boys list (look at the default values for pagination parameters)
 GET     /oldboys                    controllers.Application.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 
-# Add computer
+# Add oldboy
 GET     /oldboys/new                controllers.Application.create()
 POST    /oldboys                    controllers.Application.save()
 
-# Edit existing computer
+# Edit existing oldboy
 GET     /oldboys/:id                controllers.Application.edit(id:Long)
 POST    /oldboys/:id                controllers.Application.update(id:Long)
 
-# Delete a computer
+# Delete an old boy
 POST    /oldboys/:id/delete         controllers.Application.delete(id:Long)
 
 # Map static resources from the /public folder to the /assets URL path
